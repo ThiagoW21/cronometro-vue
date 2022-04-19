@@ -34,38 +34,40 @@ function resetTime() {
 </script>
 
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
-    <Timer
-      :resetTimer="resetTimer"
-      :start="timer"
-      @set-time="setTime"
-      :saveTime="save"
-    />
-    <div class="wrapper">
-      <button
-        class="btn-start"
-        :class="[timer && 'btn-stop']"
-        type="button"
-        @click="handleTimer"
-      >
-        {{ textContent }}
-      </button>
-      <button type="button" @click="saveTime">Marcar tempo</button>
-      <button class="btn-reset" type="button" @click="resetTime">
-        Reiniciar
-      </button>
-    </div>
-  </header>
-  <div class="time-container">
-    <div v-for="(time, index) in timers" :key="index">
-      <Time :time="time" />
+  <div class="app-container">
+    <header>
+      <img
+        alt="Vue logo"
+        class="logo"
+        src="@/assets/logo.svg"
+        width="125"
+        height="125"
+      />
+      <Timer
+        :resetTimer="resetTimer"
+        :start="timer"
+        @set-time="setTime"
+        :saveTime="save"
+      />
+      <div class="wrapper">
+        <button
+          class="btn-start"
+          :class="[timer && 'btn-stop']"
+          type="button"
+          @click="handleTimer"
+        >
+          {{ textContent }}
+        </button>
+        <button type="button" @click="saveTime">Marcar tempo</button>
+        <button class="btn-reset" type="button" @click="resetTime">
+          Reiniciar
+        </button>
+      </div>
+    </header>
+    <div class="time-container">
+      <div v-for="(time, index) in timers" :key="index">
+        <Time :time="time" />
+      </div>
     </div>
   </div>
 </template>
@@ -85,8 +87,9 @@ function resetTime() {
   display: flex;
   flex-direction: column;
   max-height: 300px;
-  width: 100px;
+  width: 100%;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .wrapper {
@@ -119,6 +122,11 @@ button:hover {
 header {
   line-height: 1.5;
   max-height: 100vh;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .logo {
@@ -162,16 +170,19 @@ body {
   height: 100%;
 }
 
-@media (min-width: 1024px) {
-  body {
+@media (max-width: 500px) {
+  .app-container {
     display: flex;
     place-items: center;
+    flex-direction: column;
+    width: 100%;
   }
 
   header {
-    width: 500px;
     display: flex;
+    width: 500px;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
   }
 }
