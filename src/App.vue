@@ -170,20 +170,10 @@ body {
   height: 100%;
 }
 
-@media (max-width: 500px) {
-  .app-container {
-    display: flex;
-    place-items: center;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  header {
-    display: flex;
-    width: 500px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
+.app-container {
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 </style>
